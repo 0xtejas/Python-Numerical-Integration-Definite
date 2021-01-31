@@ -20,7 +20,7 @@ def simpson_rule():
             part1+= table[keys]
         elif ((keys % 2) and keys != n and keys!=0):
             part2+=table[keys]
-    Integral = h/2 * ((table[0] + table[n]) + 4*part1 + 2*part2)
+    Integral = h/3 * ((table[0] + table[n]) + 4*part1 + 2*part2)
     print(Integral)
   
 
