@@ -1,6 +1,5 @@
 def get_values():
     global L, LimitN, Limit0, h,constant
-    print("Enter the co-efficient in decreasing order, with no spaces")
     coefficient = str(input("Enter the co-efficient of the integrand F(x): "))
     Limit0 = int(input("Enter the Lower Limit: "))
     LimitN = int(input("Enter the Upper Limit: "))
