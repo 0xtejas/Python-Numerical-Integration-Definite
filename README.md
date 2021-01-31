@@ -1,2 +1,3 @@
-# Python_Numerical-Integration_Definite
-Numerical Integration - Definite Integration
+# Numerical Integration (Definite Integration)
+
+Using Simpson's Rule and Trapezoidal Rule
