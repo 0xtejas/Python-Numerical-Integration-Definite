@@ -16,10 +16,15 @@ def simpson_rule():
     part1 = 0
     part2 = 0
     for keys in table:
-        if keys % 2 and (keys!= n):
-            part1+= table[keys]
-        elif ((keys % 2) and keys != n and keys!=0):
-            part2+=table[keys]
+        # if keys % 2 and (keys!= n):
+        #     part1+= table[keys]
+        # elif ((keys % 2) and keys != n and keys!=0):
+        #     part2+=table[keys]
+        if keys % 2 == 0 and keys != 0 and keys != n:
+            part2 += table[keys]
+        elif keys % 2 != 0 and keys !=0 and keys !=n:
+            part1 +=table[keys]
+     
     Integral = h/3 * ((table[0] + table[n]) + 4*part1 + 2*part2)
     print(Integral)
   
@@ -56,22 +61,23 @@ def find_degree():
         coefficient.append(i)
     
     equation(coefficient)
+
     if len(L) >= 3:
         simpson_rule()
     elif len(L) == 1 or len(L) == 2:
         trapezoidal_rule() 
 
-
-
 def generate_y(limit):
-    for j in range(int(limit+1)):
-        counter=len(coefficient)
+    for i in range(int(limit+1)):
+        counter = len(coefficient)
         temp = 0
-        for i in coefficient:
-            temp += int(i) * pow(j,counter)
-            counter-=1
+        x = Limit0 + i        
+        for j in coefficient:
+            temp += int(j) * pow(x,counter)
+            counter -= 1
         temp += constant
-        table[j] = temp
+        table[i] = temp
+    print(table)
  
 
 if __name__ == "__main__":
