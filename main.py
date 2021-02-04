@@ -16,10 +16,6 @@ def simpson_rule():
     part1 = 0
     part2 = 0
     for keys in table:
-        # if keys % 2 and (keys!= n):
-        #     part1+= table[keys]
-        # elif ((keys % 2) and keys != n and keys!=0):
-        #     part2+=table[keys]
         if keys % 2 == 0 and keys != 0 and keys != n:
             part2 += table[keys]
         elif keys % 2 != 0 and keys !=0 and keys !=n:
