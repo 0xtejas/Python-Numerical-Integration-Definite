@@ -1,16 +1,18 @@
+from scipy.misc import derivative
+
 def get_values():
-    global L, LimitN, Limit0, h,constant
+    global L, LimitN, Limit0, h,constant,n
     coefficient = str(input("Enter the co-efficient of the integrand F(x): "))
     Limit0 = int(input("Enter the Lower Limit: "))
     LimitN = int(input("Enter the Upper Limit: "))
     h = 1
     L = coefficient.split()
     constant = int(input("Enter Constant: "))
+    n = LimitN - Limit0 / h
 
 table = {}
 
 def simpson_rule():
-    n = LimitN - Limit0 / h
     print("I'm Using Simpson's Rule")
     generate_y(n)
     part1 = 0
@@ -26,7 +28,6 @@ def simpson_rule():
   
 
 def trapezoidal_rule():
-    n = LimitN - Limit0 / h
     print("I'm using Trapezoidal Rule")
     generate_y(n)
     part1 = 0
@@ -58,9 +59,9 @@ def find_degree():
     
     equation(coefficient)
 
-    if len(L) >= 3:
+    if len(L) >= 3 and n!=1:
         simpson_rule()
-    elif len(L) == 1 or len(L) == 2:
+    elif len(L) == 1 or len(L) == 2 or n==1:
         trapezoidal_rule() 
 
 def generate_y(limit):
