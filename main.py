@@ -22,7 +22,7 @@ def simpson_rule():
             elif keys % 2 != 0 and keys !=0 and keys !=n:
                 part1 +=table[keys]
             Integral = h/3 * ((table[0] + table[n]) + 4*part1 + 2*part2)
-            print(Integral)
+        print(Integral)
     elif n%3 == 0:
         print("I'm Using Simpson's 3/8th Rule")
         part1 = 0
