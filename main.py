@@ -84,7 +84,7 @@ def generate_y(limit):
             counter -= 1
         temp += constant
         table[i] = temp
-print(table)
+    print(table)
 
 
 if __name__ == "__main__":
