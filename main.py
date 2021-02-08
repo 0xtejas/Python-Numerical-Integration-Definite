@@ -3,10 +3,11 @@ def get_values():
     coefficient = str(input("Enter the co-efficient of the integrand F(x): "))
     Limit0 = int(input("Enter the Lower Limit: "))
     LimitN = int(input("Enter the Upper Limit: "))
-    h = 1
+    h = 0.5
     L = coefficient.split()
     constant = int(input("Enter Constant: "))
-    n = LimitN - Limit0 / h
+    n = (LimitN - Limit0)/h
+    print(type(n))
 
 table = {}
 
