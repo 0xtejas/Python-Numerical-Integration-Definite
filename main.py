@@ -1,5 +1,3 @@
-from scipy.misc import derivative
-
 def get_values():
     global L, LimitN, Limit0, h,constant,n
     coefficient = str(input("Enter the co-efficient of the integrand F(x): "))
@@ -13,18 +11,30 @@ def get_values():
 table = {}
 
 def simpson_rule():
-    print("I'm Using Simpson's Rule")
     generate_y(n)
-    part1 = 0
-    part2 = 0
-    for keys in table:
-        if keys % 2 == 0 and keys != 0 and keys != n:
-            part2 += table[keys]
-        elif keys % 2 != 0 and keys !=0 and keys !=n:
-            part1 +=table[keys]
-     
-    Integral = h/3 * ((table[0] + table[n]) + 4*part1 + 2*part2)
-    print(Integral)
+    if n %2 == 0:
+        print("I'm Using Simpson's 1/3rd Rule")
+        part1 = 0
+        part2 = 0
+        for keys in table:
+            if keys % 2 == 0 and keys != 0 and keys != n:
+                part2 += table[keys]
+            elif keys % 2 != 0 and keys !=0 and keys !=n:
+                part1 +=table[keys]
+            Integral = h/3 * ((table[0] + table[n]) + 4*part1 + 2*part2)
+            print(Integral)
+    elif n%3 == 0:
+        print("I'm Using Simpson's 3/8th Rule")
+        part1 = 0
+        part2 = 0
+        for keys in table:
+            if keys % 3 == 0 and keys != 0 and keys != n:
+                part2 += table[keys]
+            elif keys %2 != 0 and keys !=0 and keys !=n:
+                part1 +=table[keys]
+        Integral = 3*h/8 * ((table[0] + table[n]) + 3*part1 + 2*part2)
+        print(Integral)
+        
   
 
 def trapezoidal_rule():
@@ -74,8 +84,8 @@ def generate_y(limit):
             counter -= 1
         temp += constant
         table[i] = temp
-    print(table)
- 
+print(table)
+
 
 if __name__ == "__main__":
     get_values()
