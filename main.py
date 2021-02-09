@@ -3,7 +3,7 @@ def get_values():
     coefficient = str(input("Enter the co-efficient of the integrand F(x): "))
     Limit0 = int(input("Enter the Lower Limit: "))
     LimitN = int(input("Enter the Upper Limit: "))
-    h = 0.5
+    h = 0.05
     L = coefficient.split()
     constant = int(input("Enter Constant: "))
     n = (LimitN - Limit0)/h
@@ -77,17 +77,16 @@ def find_degree():
 def generate_y(limit):
     x = Limit0
     for i in range(int(limit+1)):
-        if x != LimitN:
-            counter = len(coefficient)
-            temp = 0        
-            for j in coefficient:
-                temp += int(j) * pow(x,counter)
-                counter -= 1
-            temp += constant
-            x +=  h
-            table[i] = temp
-            global final
-            final = i
+        counter = len(coefficient)
+        temp = 0        
+        for j in coefficient:
+            temp += int(j) * pow(x,counter)
+            counter -= 1
+        temp += constant
+        x +=  h
+        table[i] = temp
+        global final
+        final = i
 
 
     print(table)
