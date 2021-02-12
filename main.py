@@ -3,7 +3,7 @@ def get_values():
     coefficient = str(input("Enter the co-efficient of the integrand F(x): "))
     Limit0 = int(input("Enter the Lower Limit: "))
     LimitN = int(input("Enter the Upper Limit: "))
-    h = 0.05
+    h = float(input("Enter the value of h: "))
     L = coefficient.split()
     constant = int(input("Enter Constant: "))
     n = (LimitN - Limit0)/h
