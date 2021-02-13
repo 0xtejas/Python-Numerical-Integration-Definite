@@ -3,7 +3,7 @@ def get_values():
     coefficient = str(input("Enter the co-efficient of the integrand F(x): "))
     Limit0 = int(input("Enter the Lower Limit: "))
     LimitN = int(input("Enter the Upper Limit: "))
-    h = 0.05
+    h = float(input("Enter the value of h: "))
     L = coefficient.split()
     constant = int(input("Enter Constant: "))
     n = (LimitN - Limit0)/h
@@ -21,7 +21,8 @@ def simpson_rule():
                 part2 += table[keys]
             elif keys % 2 != 0 and keys !=0 and keys !=n:
                 part1 +=table[keys]
-        Integral = h/3 * ((table[0] + table[final]) + 4*part1 + 2*part2)
+        Integral =  ((table[0] + table[final]) + 4*part1 + 2*part2)
+        Integral = Integral * h/3
         print(Integral)
     elif n%3 == 0:
         print("I'm Using Simpson's 3/8th Rule")
@@ -30,7 +31,7 @@ def simpson_rule():
         for keys in table:
             if keys % 3 == 0 and keys != 0 and keys != n:
                 part2 += table[keys]
-            elif keys %2 != 0 and keys !=0 and keys !=n:
+            elif keys %3 != 0 and keys !=0 and keys !=n:
                 part1 +=table[keys]
         Integral = 3*h/8 * ((table[0] + table[final]) + 3*part1 + 2*part2)
         print(Integral)
