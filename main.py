@@ -1,12 +1,19 @@
 def get_values():
-    global L, LimitN, Limit0, h,constant,n
-    coefficient = str(input("Enter the co-efficient of the integrand F(x): "))
-    Limit0 = int(input("Enter the Lower Limit: "))
-    LimitN = int(input("Enter the Upper Limit: "))
-    h = float(input("Enter the value of h: "))
-    L = coefficient.split()
-    constant = int(input("Enter Constant: "))
-    n = (LimitN - Limit0)/h
+	try:
+	    global L, LimitN, Limit0, h,constant,n
+	    coefficient = str(input("Enter the co-efficient of the integrand F(x): "))
+	    Limit0 = int(input("Enter the Lower Limit: "))
+	    LimitN = int(input("Enter the Upper Limit: "))
+	    h = float(input("Enter the value of h: "))
+	    L = coefficient.split()
+	    constant = int(input("Enter Constant: "))
+	    n = (LimitN - Limit0)/h
+	except Exception as e:
+		print("Oops! Value Error Occurred.")
+		print("Try Again !!\n\n")
+
+		get_values()
+
 
 table = {}
 
