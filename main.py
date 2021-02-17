@@ -1,14 +1,20 @@
 def get_values():
-    global L, LimitN, Limit0, h,constant,n
-    coefficient = str(input("Enter the co-efficient of the integrand F(x): "))
-    Limit0 = int(input("Enter the Lower Limit: "))
-    LimitN = int(input("Enter the Upper Limit: "))
-    h = 0.5
-    L = coefficient.split()
-    constant = int(input("Enter Constant: "))
-    n = (LimitN - Limit0)/h
-    print(type(n))
-    print("Test")
+	try:
+	    global L, LimitN, Limit0, h,constant,n
+	    coefficient = str(input("Enter the co-efficient of the integrand F(x): "))
+	    Limit0 = int(input("Enter the Lower Limit: "))
+	    LimitN = int(input("Enter the Upper Limit: "))
+	    h = float(input("Enter the value of h: "))
+	    L = coefficient.split()
+	    constant = int(input("Enter Constant: "))
+	    n = (LimitN - Limit0)/h
+	except Exception as e:
+		print("Oops! Value Error Occurred.")
+		print("Try Again !!\n\n")
+
+		get_values()
+
+
 
 table = {}
 
@@ -23,7 +29,8 @@ def simpson_rule():
                 part2 += table[keys]
             elif keys % 2 != 0 and keys !=0 and keys !=n:
                 part1 +=table[keys]
-        Integral = h/3 * ((table[0] + table[n]) + 4*part1 + 2*part2)
+        Integral =  ((table[0] + table[final]) + 4*part1 + 2*part2)
+        Integral = Integral * h/3
         print(Integral)
     elif n%3 == 0:
         print("I'm Using Simpson's 3/8th Rule")
@@ -32,9 +39,9 @@ def simpson_rule():
         for keys in table:
             if keys % 3 == 0 and keys != 0 and keys != n:
                 part2 += table[keys]
-            elif keys %2 != 0 and keys !=0 and keys !=n:
+            elif keys %3 != 0 and keys !=0 and keys !=n:
                 part1 +=table[keys]
-        Integral = 3*h/8 * ((table[0] + table[n]) + 3*part1 + 2*part2)
+        Integral = 3*h/8 * ((table[0] + table[final]) + 3*part1 + 2*part2)
         print(Integral)
         
   
@@ -46,7 +53,7 @@ def trapezoidal_rule():
     for keys in table:
         if keys!=0 and keys!=n:
             part1+=table[keys]
-    Integral = h/2 * ((table[0] + table[n]) + 2*part1)
+    Integral = h/2 * ((table[0] + table[final]) + 2*part1)
     print(Integral)
     
 
@@ -77,15 +84,20 @@ def find_degree():
         trapezoidal_rule() 
 
 def generate_y(limit):
+    x = Limit0
     for i in range(int(limit+1)):
         counter = len(coefficient)
-        temp = 0
-        x = Limit0 + i        
+        temp = 0        
         for j in coefficient:
             temp += int(j) * pow(x,counter)
             counter -= 1
         temp += constant
+        x +=  h
         table[i] = temp
+        global final
+        final = i
+
+
     print(table)
 
 
