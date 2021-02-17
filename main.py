@@ -15,6 +15,7 @@ def get_values():
 		get_values()
 
 
+
 table = {}
 
 def simpson_rule():
