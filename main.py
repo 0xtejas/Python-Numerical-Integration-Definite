@@ -8,6 +8,7 @@ def get_values():
     constant = int(input("Enter Constant: "))
     n = (LimitN - Limit0)/h
     print(type(n))
+    print("Test")
 
 table = {}
 
